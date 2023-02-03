@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: rgb(68,125,199);
+            color: white;
+            font: normal 18pt Arial;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 id="titulo">Iniciando estudos DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em Javascript</p>
+    <div>Clique em mim</div>
+
+
+
+
+    <script>
+
+        // O comando pega a tag 'p' e printa o que está escrito nela, tudo no HTML
+
+        var p1 = window.document.getElementsByTagName('p')[1]
+        window.document.write('Está esrito assim: ' + p1.innerText)
+
+        // innerText - mostra somente o texto
+
+        // innerHTML - mostra o texto formatado
+
+        var p1 = window.document.getElementsByTagName('p1')
+        window.document.write('Está esrito assim: ' + p1.innerHTML)
+
+        //getElementsByTagName - Seleciona por tag (p, div, h1 e etc)
+
+        //getElementById - Seleciona por id
+
+        var d = window.document.getElementById('titulo')
+        window.document.write('Está esrito assim: ' + titulo.innerHTML)
+
+
+
+
+        //Selecionando id de forma simplificada (não é compatível em todos os nagevadores pois é recente)
+
+        var a = window.document.querySelector('#titulo')
+        a.style.background = 'blue'
+    </script>
+
+</body>
+</html>
