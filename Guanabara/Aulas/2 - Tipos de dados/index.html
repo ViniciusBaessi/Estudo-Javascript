@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: azure;
+            font-size: 30px;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <main>
+        <h1>Olá, mundo!</h1>
+        <p>Já me livrei da maldição</p>
+    </main>
+
+    <script>
+
+
+        var nome =  window.prompt('Qual é o seu nome?')
+        window.alert('É um grande prazer em te conhecer, ' + nome + '!') //Print na tela
+        document.write(`Seu nome tem ${nome.length} letras`) 
+        
+        // var.lenght mostra a quantidade de caracteres
+
+        //document.write escreve o print no HTML
+
+
+
+
+
+        // FUNÇÃO PARA SOMA
+
+        // Por padrão as variáveis são definidas como string e temos que convertê-las em alguns casos.
+
+
+
+
+        // 'Number.parseInt' converte a var para number
+
+        // 'Number.parseFloat' converte a var para real
+
+        // 'Number' o Javascript define qual a variável de forma automática
+
+        // 'String(var que é number)' Coverte para string
+
+        // 'var que é number.toString()' Coverte para string
+
+
+
+
+        var n1 = Number(window.prompt('Digite um número?')) 
+
+        var n2 = Number(window.prompt('Digite outro número?'))
+
+
+
+        var soma = n1 + n2 // Somando
+        window.alert('A soma dos valores é ' + soma.toFixed(2)) // 'to.Fixed' mostra a quantidade de casas decimais
+
+
+        /* 
+        Outra forma de escrever o comando acima será usando '${}' ao invés de '+'.
+        window.alert(`A soma entre ${n1} e ${n2} é igual a ${soma}`) 
+        */
+
+
+        // (number + number) para adição
+        // (string + string) para concatenação
+
+
+        // Mostra a moeda de acordo com o país
+
+        document.write(n1.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}))
+        
+    </script> 
+
+
+
+</body>
+</html>
