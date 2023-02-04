@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM</title>
+
+    <style>
+        div#area {
+            display: flex;
+            background-color: green;
+            color: white;
+            width: 200px;
+            height: 200px;
+            justify-content: center;
+            align-items: center;
+            font: normal 20pt Arial;
+
+        }
+
+        input, section div {
+            font: normal 18pt Arial;
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+     <!-- Soma -->
+     <main>
+        <section>
+
+            <div>
+                <h1>Somando valores</h1>
+                <input type="number" name="t1" id="t1"> + <!-- t1 -->
+                <input type="number" name="t2" id="t2"> <!-- t2 -->
+                <input type="button" value="Somar" onclick="somar()">
+            </div>
+
+        </section>
+
+        <section>
+
+            <div id="res">Resultado</div> <!-- res -->
+
+        </section>
+
+
+        <script>
+            function somar() {
+    
+                var tn1 = window.document.getElementById('t1') // Chamando id (t1)
+                var tn2 = window.document.getElementById('t2') // Chamando id (t2)
+                var res = window.document.getElementById('res') // Chamando id (res)
+    
+                var n1 = Number(tn1.value) //Colocando valor de 't1' na var 'n1'
+                var n2 = Number(tn2.value) //Colocando valor de 't2' na var 'n2'
+                
+                var soma = n1 + n2 //Somando 'n1' com'n2' e colocando na var 'soma'
+                res.innerHTML = `A soma entre ${n1} e ${n2} é igual a ${soma}!` //Print
+                
+            }
+        </script>
+    </main>
+
+
+    <!-- Aplicando método na div-->
+    <div id="area"> 
+        Interaja...
+    </div>
+
+    <!-- Criando função para os métodos aplicados-->
+    <script>
+
+
+
+        // Atribuindo funções na div com id 'area'
+
+        var a = window.document.getElementById('area')
+        a.addEventListener('click', clicar)
+        a.addEventListener('mouseenter', entrar)
+        a.addEventListener('mouseout', sair)
+
+
+        // Ao clicar na div, a função nomeada de clicar usano o método (onclick) muda o texto da div original para clicou.
+
+        function clicar() {
+            a.innerText = 'Clicou'
+            a.style.background = 'red' // Estilizando a interação
+        }
+
+        function entrar() {
+            a.innerText = 'Entrou'
+        }
+
+        function sair() {
+            a.innerText = 'Saiu'
+            a.style.background = 'green'
+        }
+
+    </script>
+</body>
+
+
+</html>
