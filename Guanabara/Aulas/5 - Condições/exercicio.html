@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Identificador de nacionalidade</h1>
+
+
+    <p>
+        
+        Insira o seu país de origem: 
+        
+
+        <!-- Caixa de texto-->
+        <input type="text" name="nac" id="nac"> 
+
+        <!-- Botão para avaliar o resultado usando a função 'validar'-->
+        <input type="button" value="Salvar" onclick="validar()">
+
+    </p>
+
+    <!-- Div que receberá o print do resultado-->
+    <div id="res"></div>
+
+
+
+
+    <script>
+
+        //Função
+        function validar() { 
+
+
+            // Identificando a caixa de texto e colocando-a em uma variável
+            var ctexto = window.document.getElementById('nac')
+
+
+            // Inserindo valor da caixa de texto em uma variável
+            var pais = (nac.value)
+
+            // Identificando o campo que recebrá o print e colocando-o em uma variável
+            var res = window.document.getElementById('res')
+
+        
+            //Se for Brasil o campo de print recebe o texto abaixo
+            if (pais == 'Brasil') {
+                res.innerHTML = `O seu país de origem é ${pais} logo você é brasileiro!`
+            } 
+            
+            //Se não for Brasil, o campo de print recebe o texto abaixo
+            else {
+            res.innerHTML = `O seu país de origem é ${pais} logo você é estrangeiro!`
+            }
+        }
+    </script>
+
+</body>
+</html>
