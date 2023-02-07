@@ -1,6 +1,6 @@
 function  contar() {
 
-    //Colocando tags do HTML em variáveis
+    //Colocando tags do HTML em variáveis ----------------------
 
     var ini = window.document.getElementById('txtnum1')
     var fim = window.document.getElementById('txtnum2')
@@ -15,24 +15,63 @@ function  contar() {
     
 
     //Validação se a contagem pode ser iniciada
-    if (cont2 <= cont1 || cont1 === 0 || cont2 === 0 || passo === 0) {
+    if (cont2 <= cont1 || cont1 === 0 || cont2 === 0) {
         alert('Número inválido para contagem')
         return
     } 
-    
 
-    //Início da contagem
 
-    var contador = cont1 - 1
-    
-    while (contador <= cont2) {
-    res.innerHTML += `         ${contador}`
-    contador = contador + passo
 
+    // Se o passo for 0 ele automáticamente vira 1 -----------
+    if  (passo === 0) {
+        passo = passo + 1
+    }
+
+
+    // Limpa tela --------------------------------------------------------
+    res.innerHTML = ``
+
+
+
+
+
+    //Início da contagem ----------------------------------------------
+
+    if (cont1 > 1 && passo > 1) {
+        var contador = cont1
+
+        while (contador <= cont2) {
+
+            res.innerHTML += `👉    ${contador}       `
+            contador = contador + passo
+            } 
+    }
+
+
+
+    else if (passo > 1) {
+        var contador = cont1 - 1
+
+        while (contador <= cont2) {
+            res.innerHTML += `👉    ${contador}       `
+            contador = contador + passo 
+            } 
+    } 
+
+
+    else if (passo == 1) {
+        var contador = cont1
+
+        while (contador <= cont2) {
+            res.innerHTML += `👉    ${contador}       `
+            contador = contador + passo
+            }
     } 
     
+    
+
 
     //Colocando um caractere na última saída do loop
-    res.innerHTML += "!"
+    res.innerHTML += "🏴"
 
 }

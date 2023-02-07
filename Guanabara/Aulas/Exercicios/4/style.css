@@ -1,0 +1,56 @@
+body {
+    background: rgb(70, 142, 236);
+    font: normal 15pt Arial
+}
+
+header {
+    color: white;
+    text-align: center;
+}
+
+
+main section {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.342);
+}
+
+div {
+    font-size: 25px;
+    padding-left: 5px;
+    
+}
+
+
+#num{
+    height: 15px;
+    padding-top: 5px;  
+    
+}
+
+div input{
+    height: 27px;
+    padding: 5px;  
+    font-size: 15px;
+}
+
+
+
+
+footer {
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    color: rgb(110, 110, 110);
+    font-weight: bold;
+  }
+
+  #txt {
+    height: 180px;
+  }
