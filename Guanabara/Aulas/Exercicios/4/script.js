@@ -1,33 +1,22 @@
-function Tabuada() {
-
-
-    var num = window.document.getElementById('num')
-    var res = window.document.getElementById('textarea')
-    var tab = Number(num.value)
-
-    res.innerHTML = `${tab}`
+function tabuada() {
+    let num = document.getElementById('txtn')
+    let tab = document.getElementById('seltab')
 
 
 
-
-
-
-
-
-    var node = document.createElement('li');
-    node.appendChild(document.createTextNode('Scooter'));
-     
-    document.querySelector('ul').appendChild(node);
-    
-    
-
-
-    for (var contador = 0; contador <= 10; contador = contador + 1) {
-        if (contador == 0) {
-            res.innerHTML += ``
-        } else {
-        res.innerHTML += `${contador}`
+    // Validando se algum número goi digitado para continuidade
+    if (num.value.length == 0) {
+        window.alert('Por favor digite um número!')
+    } else {
+        let n = Number(num.value)
+        let c = 1
+        tab.innerHTML = ''
+        while (c <= 10) {
+            let item = document.createElement('option')
+            item.text = `${n} x ${c} = ${n*c}`
+            item.value= `tab${c}`
+            tab.appendChild(item)
+            c++
         }
     }
-
 }
