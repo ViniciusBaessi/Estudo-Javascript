@@ -9,7 +9,20 @@ function Tabuada() {
 
 
 
-    for (var contador = 0; contador <= 11; contador = contador + 1) {
+
+
+
+
+
+    var node = document.createElement('li');
+    node.appendChild(document.createTextNode('Scooter'));
+     
+    document.querySelector('ul').appendChild(node);
+    
+    
+
+
+    for (var contador = 0; contador <= 10; contador = contador + 1) {
         if (contador == 0) {
             res.innerHTML += ``
         } else {

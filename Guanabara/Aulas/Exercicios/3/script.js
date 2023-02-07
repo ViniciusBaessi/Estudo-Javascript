@@ -2,76 +2,46 @@ function  contar() {
 
     //Colocando tags do HTML em variáveis ----------------------
 
-    var ini = window.document.getElementById('txtnum1')
-    var fim = window.document.getElementById('txtnum2')
-    var pas = window.document.getElementById('passo')
-    var res = window.document.getElementById('res')
-
-    //Colocando o valor digitado pelo user nas tags, dentro das variáveis
-    var cont1 = Number(ini.value)
-    var cont2 = Number(fim.value)
-    var passo = Number(pas.value)
-
-    
-
-    //Validação se a contagem pode ser iniciada
-    if (cont2 <= cont1 || cont1 === 0 || cont2 === 0) {
-        alert('Número inválido para contagem')
-        return
-    } 
+    let ini = window.document.getElementById('txti')
+    let fim = window.document.getElementById('txtf')
+    let passo = window.document.getElementById('txtp')
+    let res = window.document.getElementById('res')
 
 
+  //Validação para ver se a contagem pode ser iniciada
 
-    // Se o passo for 0 ele automáticamente vira 1 -----------
-    if  (passo === 0) {
-        passo = passo + 1
-    }
+  if (ini.value.length == 0 || fim.value.length == 0 || passo.value.length == 0) {
+    res.innerHTML = 'Impossível contar'
+  } 
+  
+  
+  //Colocando o valor digitado pelo user nas tags, dentro das variáveis
 
+  else {
+        res.innerHTML = 'Contando: <br>'
+        let i = Number(ini.value)
+        let f = Number(fim.value)
+        let p = Number(passo.value)
 
-    // Limpa tela --------------------------------------------------------
-    res.innerHTML = ``
-
-
-
-
-
-    //Início da contagem ----------------------------------------------
-
-    if (cont1 > 1 && passo > 1) {
-        var contador = cont1
-
-        while (contador <= cont2) {
-
-            res.innerHTML += `👉    ${contador}       `
-            contador = contador + passo
-            } 
-    }
-
-
-
-    else if (passo > 1) {
-        var contador = cont1 - 1
-
-        while (contador <= cont2) {
-            res.innerHTML += `👉    ${contador}       `
-            contador = contador + passo 
-            } 
-    } 
-
-
-    else if (passo == 1) {
-        var contador = cont1
-
-        while (contador <= cont2) {
-            res.innerHTML += `👉    ${contador}       `
-            contador = contador + passo
+        if (p <= 0) {
+            window.alert('Passo inválido! Considerando PASSO 1')
+            p = 1
+        }
+        // Contagem crescente
+        if (i < f) {
+            for (let c = i; c <= f; c += p ) {
+                res.innerHTML += ` ${c} \u{1F449}`
+             }
+        } 
+        
+        // Contagem regressiva
+        else {
+            for(let c = i; c >= f; c -=p) {
+                res.innerHTML += ` ${c} \u{1F449}`
             }
-    } 
-    
-    
-
-
-    //Colocando um caractere na última saída do loop
-    res.innerHTML += "🏴"
-
+        }
+        res.innerHTML += `\u{1F3C1}`
+    }
 }
+    
+
