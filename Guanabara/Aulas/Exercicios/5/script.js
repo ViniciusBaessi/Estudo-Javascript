@@ -37,6 +37,7 @@ function adicionar() {
   
 
    // Se a variável contador for diferente de undefined (se ela existir), faça o vetor receber o valor e contador recebe +1
+   
    if (typeof contador !== "undefined") {
     vetor[contador] = valor;
     contador = contador + 1
