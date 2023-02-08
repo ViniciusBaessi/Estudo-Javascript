@@ -21,6 +21,8 @@ do {
 
 //FOR (inicio; teste lógico; incremento)
 
+
+
 for (var contador = 1; contador <= 5; contador = contador + 1) {
     console.log(contador)
 }
