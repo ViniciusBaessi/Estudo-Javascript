@@ -1,4 +1,4 @@
-function aaa() {
+function tabuada() {
 
      //Linkando elementos do HTML ao javascript  --------------------------
      var txtn = window.document.getElementById('txtn')
@@ -15,4 +15,18 @@ function aaa() {
      } 
      //Apagando prints anteriores, caso haja.
      res.innerHTML = ``
+
+
+
+     // Calculo da tabuada
+    
+     var contador = 0
+     
+     while (contador < 11) {
+        res.innerHTML += ` ${contador} x ${num} = ${contador*num} <br>`
+        contador = contador + 1
+
+     }
+
+        
 }
