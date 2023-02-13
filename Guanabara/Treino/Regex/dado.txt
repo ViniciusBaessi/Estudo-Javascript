@@ -1,0 +1,19 @@
+Vinicius Faria Baessi dos Santos, 02122-070, 02 de Maio de 2000, 689.453.456-85, viniciusbaessi@gmail.com
+
+
+
+Filtrar nome completo?
+^(\w+) (\w+) (\w+) (\w+) (\w+)
+
+Filtrar CEP?
+\d{5}-\d{3}
+
+Filtrar email?
+[\w\.]+\@[\w+]+\.com
+
+
+Filtrar CPF?
+\d{3}\.?\d{3}\.?\d{3}\.?[-.]?\d{2}
+
+Filtrar data de nascimento?
+[0123]?\d\s+de\s+[A-Z][a-zç]{1,8}\s+de\s+[12]\d{3}
