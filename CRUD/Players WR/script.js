@@ -1,29 +1,39 @@
+var dados = []
 
-//CREATE --------------------------------------------------------------------
-
-// Linkando a tag (form) na variável $meuForm
-const $meuForm = document.querySelector('form')
-console.log($meuForm)
+var registro = {}
 
 
-//Toda vez que o botão enviar for clicado, faça a função ...
-$meuForm.addEventListener('submit', function EnviaDadoController(InfosDoEvento) {
+function PopulaTabela() {
 
-    // Faz com que a página não recarregue mantendo os eventos nela
-    InfosDoEvento.preventDefault();
+    //Se a variável (dados) for um array, será feita a limpeza de linhas antigas da tabela e através de um loop será criada uma linha de tabela para cada slot do array
 
-    // Linkando a tag (input) na variável $EnviaPost
-    const $EnviaPost = document.querySelector('input[name="EnviaPost"]')
+    if (Array.isArray(dados)) {
+        $("#tblDados tbody").html("")
+        dados.forEach(function (item) {
+            $("#tblDados tbody").append(`
+            <tr>
+            <td>${item.ID}</td>
+            <td>${item.Nickname}</td>
+            <td>${item.Main}</td>
+            <td>${item.DtNascimento}</td>
+            <td>${item.Formacao}</td>
+            </tr>`) // (append) adiciona conteúdos/tags HTML dentro da tbody
+        })
+    }
+}
 
-    // Linkando a tag (ul) na variável $ListaEnvio
-    const $ListaEnvio = document.querySelector('.ListaEnvio')
 
-    //Pritando a resposta após a tag ul, inserindo um (li)
-    $ListaEnvio.insertAdjacentHTML('afterbegin',`<li>${$EnviaPost.value}</li>` )
+//Executa ao carregar a tela
+$(function () {
 
-    //Receber o valor, a variável fica fazia
-    $EnviaPost.value = ''
 
-    
+
+    //Convertendo dados para JSON
+    dados=JSON.parde(localStorage.getItem("__dados__"))
+
+    if (dados) {
+        PopulaTabela()
+    }
 
 })
+
