@@ -1,11 +1,7 @@
-
-* {
-    margin: 0;
-    padding: 0;
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../font/Ubuntu-M.ttf") format("truetype");
 }
-
-
-
 
 /* --------------------------- Header --------------------------- */
 
@@ -20,28 +16,17 @@
     line-height: 14vh;
 }
 
-
-
 /* --------------------------- Form --------------------------- */
 
-form {
-    width: 90vw;
-    font-family: Ubuntu;
-    margin: 0 auto;
-    margin-top: 5vh;
-    display: flex;
-    justify-content: center;
-}
-
-.input-dado-container {
-    width: 90vw;
-    font-family: Ubuntu;
-    margin: 0 auto;
-    margin-top: 5vh;
-    display: flex;
-}
-
 .input-dado {
+    width: 90vw;
+    font-family: Ubuntu;
+    margin: 0 auto;
+    margin-top: 5vh;
+    display: flex;
+}
+
+.input-text {
     flex: 1;
     min-width: 210px;
     margin: 5px;
@@ -53,14 +38,13 @@ form {
     border-color: #262626;
     transition: 0.25s;
     outline: none;
-    font-size: 18px;
 }
 
 .input-text:focus{
     border-color: blueviolet;
 }
 
-.input-botao {
+.input-btn {
     flex: 1;
     margin: 5px;
     height: 39px;
@@ -70,8 +54,6 @@ form {
     border-color: #262626;
     cursor: pointer;
     transition: 0.3s all ease;
-    padding: 5px;
-    font-size: 18px;
 }
 
 .input-btn:hover {
@@ -86,16 +68,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-
-
-
-
-
-
-
 /* --------------------------- Table --------------------------- */
 
-#MinhaTabela {
+#myTable {
     font-family: Ubuntu;
     width: 90%;
     margin: 0 auto;
@@ -103,27 +78,27 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     border-collapse: collapse;
 }
 
-#MinhaTabela th {
+#myTable th {
     background-color: blueviolet;
     padding: 10px;
     color: white;
     font-weight: 100;
 }
 
-#MinhaTabela td, th{
+#myTable td, th{
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#MinhaTabela td{
+#myTable td{
     padding: 5px;
 }
 
-#MinhaTabela tr:nth-child(even) {
+#myTable tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-#MinhaTabela tr:hover {
+#myTable tr:hover {
     background-color: #ddd;
 }
 
