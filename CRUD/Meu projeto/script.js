@@ -10,15 +10,17 @@ localStorage.clear()
 //Linkando o form de nome em uma variável
 var nome = window.document.getElementById('nome')
 var idade = window.document.getElementById('idade')
+var res = window.document.getElementById('res')
 
 
-
-
+var contador = 0
 
  //-------------------------- CREATE --------------------------------------------
 
 function criar_usuario () {
 
+
+    
 
     //Criando um objeto chamado (usuário) e preenchendo com os dados inputados pelo usuário
     const usuario = { nome: `${nome.value}`, idade: `${idade.value}` };
@@ -39,9 +41,15 @@ function criar_usuario () {
 function ler_usuario () {
 
     const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) 
+    
 
-
-
+    
+    
+    do {
+        res.innerHTML += `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} <br>`
+        contador = contador + 1
+    } while (contador >= localStorage.length)
+    
 
 
 }
