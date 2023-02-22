@@ -1,5 +1,14 @@
 //Limpa o localstorage
-localStorage.clear()
+
+function limpa_usuario () {
+
+    //Limpa os dados
+    localStorage.clear()
+
+    //Faz o refresh da página
+    location.reload()
+}
+
 
 
 
@@ -11,28 +20,55 @@ localStorage.clear()
 var nome = window.document.getElementById('nome')
 var idade = window.document.getElementById('idade')
 var res = window.document.getElementById('res')
-
-
 var contador = 0
+
+
+
+
+
+
+
+
+ler_usuario ()
+
+
+
+
+
+
+
+// ELABORAÇÃO DE UM CRUD (CREATE, READ, UPDATE, DELETE)
+
+
 
  //-------------------------- CREATE --------------------------------------------
 
-function criar_usuario () {
+function adicionar_usuario () {
 
-
-    
 
     //Criando um objeto chamado (usuário) e preenchendo com os dados inputados pelo usuário
     const usuario = { nome: `${nome.value}`, idade: `${idade.value}` };
 
+    
+    //Vai ler os dados do (localstorage), converter para JSON e enviar para a variável (db_usuario). Se o banco estiver vazio, será criado um array novo
     const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) ?? []
 
+    // O array (db_usuario) receberá o objeto (usuario) que possui os inputados no formulário.
     db_usuario.push (usuario)
 
+
+    //O comando converte os dados inseridos na variável (db_usuario) para string e envia para o (localstorage)
     localStorage.setItem("db_usuario", JSON.stringify(db_usuario))
     
-    ler_usuario ()
+    //Esvaziando o formulário para inserção de novos dados
+    nome.value = ""
+    idade.value = ""
 
+
+    //Acionando a função ler dados
+    ler_usuario()
+
+    
 }
 
 
@@ -40,23 +76,61 @@ function criar_usuario () {
 
 function ler_usuario () {
 
+
+    //Pega os dados do (localstorage) e convertendo para JSON
     const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) 
     
 
-    
-    
+
+    //Se o meu array > 0
+    if (db_usuario.length > 0) {
+
+
+
+    //Comando para acessar os dados do array e exibí-los na tela.
     do {
         res.innerHTML += `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} <br>`
         contador = contador + 1
-    } while (contador >= localStorage.length)
+    } while (contador < db_usuario.length)
+        
+
+    } else {
+        res.innerHTML = "Não há dados <br>"
+    }
     
-
-
+    
 }
 
 
-   
-    
+
+ //-------------------------- UPDATE --------------------------------------------
+
+
+
+
+
+
+
+
+
+
+ /*
+
+ const atualizar_usuario = (index, user) => {
+
+    //Pegar os dados usando a função (ler_usuario)
+    const db_usuario = ler_usuario()
+
+    //Vai selecionar o id do dado através do método (index)
+    db_usuario[index] = user
+
+    //Envia os dados para o (localstorage)
+    enviar_dados(db_usuario)
+
+    atualizar_usuario(0, usuario)
+}
+
+
 
 
 
