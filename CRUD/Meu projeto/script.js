@@ -1,44 +1,26 @@
 //Limpa o localstorage
 
-function limpa_usuario () {
-
+function limpa_dados () {
     //Limpa os dados
     localStorage.clear()
-
     //Faz o refresh da página
     location.reload()
 }
-
-
-
-
-
-
 
 
 //Linkando o form de nome em uma variável
 var nome = window.document.getElementById('nome')
 var idade = window.document.getElementById('idade')
 var res = window.document.getElementById('res')
+var msg = window.document.getElementById('msg')
 var contador = 0
 
-
-
-
-
-
-
-
+//Exibindo os dados na tela.
 ler_usuario ()
 
 
 
-
-
-
-
-// ELABORAÇÃO DE UM CRUD (CREATE, READ, UPDATE, DELETE)
-
+//--------------ELABORAÇÃO DE UM CRUD (CREATE, READ, UPDATE, DELETE)----------------------
 
 
  //-------------------------- CREATE --------------------------------------------
@@ -78,32 +60,82 @@ function ler_usuario () {
 
 
     //Pega os dados do (localstorage) e convertendo para JSON
-    const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) 
+    const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) ?? []
     
 
-
-    //Se o meu array > 0
+    //Se o meu array maior que zero, faça o comando abaixo
     if (db_usuario.length > 0) {
 
-
-
+        
     //Comando para acessar os dados do array e exibí-los na tela.
     do {
-        res.innerHTML += `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} <br>`
+        
+        msg.innerHTML = ``
+
+        //Inserindo os dados na tela e o botão para UPDATE e DELETE
+        res.innerHTML += 
+        `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} <input type="button" value="Editar" onclick="altera_usuario()"> <input type="button" value="Excluir" onclick="exclui_usuario ()"> <br>`
         contador = contador + 1
     } while (contador < db_usuario.length)
         
-
+    //Se não houver dados no array, exiba a mensagem na tela
     } else {
-        res.innerHTML = "Não há dados <br>"
+        msg.innerHTML = "Ainda não há dados <br>"
     }
-    
-    
 }
 
 
 
  //-------------------------- UPDATE --------------------------------------------
+
+function altera_usuario() {
+
+}
+
+
+
+
+
+
+
+
+
+ /*const atualizar_usuario = (index, user) => {
+
+    //Pegar os dados usando a função (ler_usuario)
+    const db_usuario = ler_usuario()
+
+    //Vai selecionar o id do dado através do método (index)
+    db_usuario[index] = user
+
+    //Envia os dados para o (localstorage)
+    enviar_dados(db_usuario)
+
+    atualizar_usuario(0, usuario)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
