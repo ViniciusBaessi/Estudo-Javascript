@@ -1,10 +1,70 @@
 //Limpa o localstorage
-//localStorage.clear()
+localStorage.clear()
 
 
 
 
-function CRUD () {
+
+
+
+//Linkando o form de nome em uma variável
+var nome = window.document.getElementById('nome')
+var idade = window.document.getElementById('idade')
+
+
+
+
+
+ //-------------------------- CREATE --------------------------------------------
+
+function criar_usuario () {
+
+
+    //Criando um objeto chamado (usuário) e preenchendo com os dados inputados pelo usuário
+    const usuario = { nome: `${nome.value}`, idade: `${idade.value}` };
+
+    const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) ?? []
+
+    db_usuario.push (usuario)
+
+    localStorage.setItem("db_usuario", JSON.stringify(db_usuario))
+    
+    ler_usuario ()
+
+}
+
+
+//-------------------------- READ --------------------------------------------
+
+function ler_usuario () {
+
+    const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) 
+
+
+
+
+
+}
+
+
+   
+    
+
+
+
+
+/* 
+
+'use strict'
+
+
+//Limpa o localstorage
+localStorage.clear()
+
+
+
+
+
 
 
     //Linkando o form de nome em uma variável
@@ -16,10 +76,7 @@ function CRUD () {
 
 
     //Criando um objeto chamado (usuário) e preenchendo com os dados inputados pelo usuário
-    const usuario = { 
-        nome: `aa`, 
-        idade: `123` 
-    };
+    
 
 
     //-------------------------- FUNÇÕES --------------------------------------------
@@ -36,7 +93,13 @@ function CRUD () {
 
     //-------------------------- CREATE --------------------------------------------
 
-    const criarusuario = (user) => {
+    const criar_usuario = (user) => {
+
+
+        const usuario = { 
+            nome: "Pedro", 
+            idade: "22"
+        };
 
     // O array (db_usuario) recebe a função (pegar_dados) cuja a função foi descrita acima.
     const db_usuario = pegar_dados()
@@ -47,12 +110,57 @@ function CRUD () {
     //Os novos dados de (db_usuario) serão enviados para o (localstorage) através da função (enviar_dados) cuja a função foi descrita acima.
     enviar_dados(db_usuario)
 
+    criar_usuario(usuario)
+
     }
     
 
-    criarusuario(usuario)
-    
+
+
+    //-------------------------- READ --------------------------------------------
     
 
-    
-}
+    //A função (pegar_dados) possui a funcionalidade para ler os dados
+    const ler_usuario = () => pegar_dados()
+
+    ler_usuario(usuario)
+
+
+
+    //-------------------------- UPDATE --------------------------------------------
+
+
+    const atualizar_usuario = (index, user) => {
+
+        //Pegar os dados usando a função (ler_usuario)
+        const db_usuario = ler_usuario()
+
+        //Vai selecionar o id do dado através do método (index)
+        db_usuario[index] = user
+
+        //Envia os dados para o (localstorage)
+        enviar_dados(db_usuario)
+
+        atualizar_usuario(0, usuario)
+    }
+
+
+    //-------------------------- DELETE --------------------------------------------
+
+    const excluir_usuario = (index) => {
+
+        //Faz a leitura dos dados
+        const db_usuario = ler_usuario()
+
+        // Exclui o dado de acordo com o seu id (index)
+        db_usuario.splice(index,1)
+
+        //Enviando os dados atualizados ao banco
+        enviar_dados(db_usuario)
+    }
+
+
+
+
+
+*/
