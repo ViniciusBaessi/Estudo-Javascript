@@ -2,42 +2,57 @@
 //localStorage.clear()
 
 
-function adicionar_dados () {
+
+
+function CRUD () {
 
 
     //Linkando o form de nome em uma variável
     var nome = window.document.getElementById('nome')
     var idade = window.document.getElementById('idade')
 
+
+    //-------------------------- OBJETO --------------------------------------------
+
+
     //Criando um objeto chamado (usuário) e preenchendo com os dados inputados pelo usuário
-    const usuario = { nome: `${nome.value}`, idade: `${idade.value}` };
+    const usuario = { 
+        nome: `aa`, 
+        idade: `123` 
+    };
+
+
+    //-------------------------- FUNÇÕES --------------------------------------------
+
+    //A função (pegar_dados) vai ler os dados do (localstorage), converter para JSON e enviar para a variável inserida no parâmetro "()". Se o banco estiver vazio, será criado um array novo
+    const pegar_dados = () => JSON.parse(localStorage.getItem('db_usuario')) ?? []
+
+
+    //A função (enviar_dados) converte os dados inseridos na variável (db_usuario) para string e envia para o (localstorage)
+    const enviar_dados = (db_usuario) => localStorage.setItem("db_usuario", JSON.stringify(db_usuario))
 
 
 
-    //O objeto (usuario) é convertido em uma string JSON usando o método JSON.stringify(). Em seguida, a string resultante é armazenada no localStorage com a chave "usuario" usando o método setItem().
 
-    const usuarioJSON = JSON.stringify(usuario);
-    localStorage.setItem("usuario", usuarioJSON);
+    //-------------------------- CREATE --------------------------------------------
 
+    const criarusuario = (user) => {
 
-    //Neste exemplo, a string JSON correspondente ao objeto usuario é recuperada do localStorage usando o método getItem(). Em seguida, a string é convertida em um objeto usando o método JSON.parse(). Por fim, podemos acessar as propriedades do objeto normalmente.
-    const usuarioJSON1 = localStorage.getItem("usuario");
-    const usuario1 = JSON.parse(usuarioJSON);
-   
+    // O array (db_usuario) recebe a função (pegar_dados) cuja a função foi descrita acima.
+    const db_usuario = pegar_dados()
 
+    // O array receberá os dados inputados pelo método. (que será o objeto usuario criado lá em cima)
+    db_usuario.push (user)
 
+    //Os novos dados de (db_usuario) serão enviados para o (localstorage) através da função (enviar_dados) cuja a função foi descrita acima.
+    enviar_dados(db_usuario)
 
-
-    var usuarios = []
-
-    usuarios = usuario.nome
-
-
-
+    }
     
 
-    //Printando na tela
-    res.innerHTML += `<strong> Nome: ${usuario1.nome} | Idade: ${usuario1.idade} </strong> <br>`
+    criarusuario(usuario)
     
-    res.innerHTML += `<strong> Nome: ${usuarios[0]} </strong> <br>`
+    
+
+    
 }
