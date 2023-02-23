@@ -31,6 +31,7 @@ function adicionar_usuario () {
     //Criando um objeto chamado (usuário) e preenchendo com os dados inputados pelo usuário
     const usuario = { nome: `${nome.value}`, idade: `${idade.value}` };
 
+   
     
     //Vai ler os dados do (localstorage), converter para JSON e enviar para a variável (db_usuario). Se o banco estiver vazio, será criado um array novo
     const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) ?? []
@@ -72,9 +73,15 @@ function ler_usuario () {
         
         msg.innerHTML = ``
 
-        //Inserindo os dados na tela e o botão para UPDATE e DELETE
+        //Inserindo os dados na tela junto ao botão para UPDATE e DELETE
         res.innerHTML += 
-        `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} <input type="button" value="Editar" onclick="altera_usuario()"> <input type="button" value="Excluir" onclick="exclui_usuario ()"> <br>`
+        `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} 
+        
+        <button id="meuBotao" data-indice="${contador}" onclick="altera_usuario()">Editar</button> <button onclick="exclui_usuario()">Excluir</button> <br>`
+        
+
+
+
         contador = contador + 1
     } while (contador < db_usuario.length)
         
@@ -86,15 +93,48 @@ function ler_usuario () {
 
 
 
+//Reconhecendo clicks feitos no body do HTML
+document.querySelector('body').addEventListener('click', editar)
+
  //-------------------------- UPDATE --------------------------------------------
 
-function altera_usuario() {
+
+function altera_usuario(evento) {
+
+    //Pega o valor do contador inserido no (data-set) e coloca na variavel (indice)
+    const indice = evento.target.dataset.indice;
+
+    //Pega os dados do (localstorage) e convertendo para JSON
+    const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) ?? []
+
+    
+    //Filtra os dados por indice
+    nome.value = db_usuario[indice].nome
+    idade.value = db_usuario[indice].idade
+
 
 }
 
 
 
 
+
+
+
+
+
+
+function editar (evento) {
+    
+    
+
+    //Reconhecendo o click no botão editar através do id 
+    if (evento.target.id == 'meuBotao'){
+        altera_usuario(evento);
+        console.log(evento.target.dataset.indice);
+    }
+    
+}
 
 
 
