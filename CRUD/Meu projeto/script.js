@@ -80,8 +80,6 @@ function ler_usuario () {
         <button id="meuBotao" data-indice="${contador}" onclick="altera_usuario()">Editar</button> <button onclick="exclui_usuario()">Excluir</button> <br>`
         
 
-
-
         contador = contador + 1
     } while (contador < db_usuario.length)
         
@@ -93,48 +91,50 @@ function ler_usuario () {
 
 
 
-//Reconhecendo clicks feitos no body do HTML
-document.querySelector('body').addEventListener('click', editar)
+
 
  //-------------------------- UPDATE --------------------------------------------
 
 
-function altera_usuario(evento) {
+//Reconhecendo clicks feitos no body do HTML
+document.querySelector('body').addEventListener('click', function(evento) {
+    click(evento);
+})
 
-    //Pega o valor do contador inserido no (data-set) e coloca na variavel (indice)
-    const indice = evento.target.dataset.indice;
+
+function altera_usuario() {
+
+    //Retorna o valor do indice do botão que foi clicado e é armazenado na variável (indice)
+    const indice = event.target.dataset.indice;
 
     //Pega os dados do (localstorage) e convertendo para JSON
     const db_usuario = JSON.parse(localStorage.getItem('db_usuario')) ?? []
 
     
-    //Filtra os dados por indice
+    //Filtra os dados através da variável (indice) e insere os valores correspondentes no formulário
     nome.value = db_usuario[indice].nome
     idade.value = db_usuario[indice].idade
 
-
+    
+    
 }
 
 
-
-
-
-
-
-
-
-
-function editar (evento) {
+function click (evento) {
     
-    
-
     //Reconhecendo o click no botão editar através do id 
     if (evento.target.id == 'meuBotao'){
+
+        //Pegando o indice do botão através da função altera_usuario
         altera_usuario(evento);
+
+        //Printa no console o valor do botão que foi clicado
         console.log(evento.target.dataset.indice);
     }
     
 }
+
+
 
 
 
