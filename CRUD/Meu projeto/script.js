@@ -13,6 +13,8 @@ var nome = window.document.getElementById('nome')
 var idade = window.document.getElementById('idade')
 var res = window.document.getElementById('res')
 var msg = window.document.getElementById('msg')
+var form = window.document.getElementById('salvar_alterar')
+
 var contador = 0
 
 //Exibindo os dados na tela.
@@ -115,9 +117,32 @@ function altera_usuario() {
     nome.value = db_usuario[indice].nome
     idade.value = db_usuario[indice].idade
 
-    
+
+
+    // Remove o botão salvar
+    if (document.getElementById('enviar')) {
+        document.getElementById('enviar').remove()
+        botao_editar ()
+}
+
+
+
+
     
 }
+
+
+
+function salvar_usuario () {
+
+   
+    
+     
+    }
+
+
+
+    
 
 
 function click (evento) {
@@ -132,6 +157,19 @@ function click (evento) {
         console.log(evento.target.dataset.indice);
     }
     
+}
+
+function botao_salvar () {
+  
+    form.innerHTML += `<input id="enviar" type="submit" value="Enviar" onclick="adicionar_usuario ()">`
+    
+}
+
+
+function botao_editar () {
+  
+    form.innerHTML += `<input id="alterar" type="submit" value="Alterar" onclick="salvar_usuario ()">`
+
 }
 
 
