@@ -8,7 +8,7 @@ function limpa_dados () {
 }
 
 
-//Linkando o form de nome em uma variável
+//Linkando o form de nome em uma variáveldd
 var nome = window.document.getElementById('nome')
 var idade = window.document.getElementById('idade')
 var res = window.document.getElementById('res')
