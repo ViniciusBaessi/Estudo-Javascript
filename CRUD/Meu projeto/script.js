@@ -8,7 +8,7 @@ function limpa_dados () {
 }
 
 
-//Linkando o form de nome em uma variáveldd
+//Linkando o form de nome em uma variável
 var nome = window.document.getElementById('nome')
 var idade = window.document.getElementById('idade')
 var res = window.document.getElementById('res')
@@ -124,20 +124,21 @@ function altera_usuario() {
         document.getElementById('enviar').remove()
         botao_editar ()
 }
-
-
-
-
-    
+salvar_usuario (indice)
 }
 
 
 
-function salvar_usuario () {
 
-   
+function salvar_usuario (indice) {
     
-     
+    const db_usuario = JSON.parse(localStorage.getItem('db_usuario'))
+
+    
+    localStorage.setItem(db_usuario, nome.value)
+
+    res.innerHTML += `aaa`
+
     }
 
 
@@ -155,13 +156,15 @@ function click (evento) {
 
         //Printa no console o valor do botão que foi clicado
         console.log(evento.target.dataset.indice);
+        ;
     }
     
 }
 
 function botao_salvar () {
   
-    form.innerHTML += `<input id="enviar" type="submit" value="Enviar" onclick="adicionar_usuario ()">`
+     form.innerHTML += `<input id="enviar" type="submit" value="Enviar" onclick="adicionar_usuario () ">`
+
     
 }
 
