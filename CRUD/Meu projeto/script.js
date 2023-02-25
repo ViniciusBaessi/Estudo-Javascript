@@ -124,7 +124,13 @@ function altera_usuario() {
         document.getElementById('enviar').remove()
         botao_editar ()
 }
-salvar_usuario (indice)
+
+//Aciona a função salvar_usuario apenas quando o borão alterar for clicado
+document.getElementById('alterar').addEventListener('click', function() {
+    salvar_usuario (indice)
+});
+
+
 }
 
 
@@ -135,9 +141,14 @@ function salvar_usuario (indice) {
     const db_usuario = JSON.parse(localStorage.getItem('db_usuario'))
 
     
-    localStorage.setItem(db_usuario, nome.value)
+    db_usuario[indice].nome = nome.value
+    db_usuario[indice].idade = idade.value
 
-    res.innerHTML += `aaa`
+
+
+    localStorage.setItem("db_usuario", JSON.stringify(db_usuario));
+
+   
 
     }
 
@@ -156,7 +167,7 @@ function click (evento) {
 
         //Printa no console o valor do botão que foi clicado
         console.log(evento.target.dataset.indice);
-        ;
+        
     }
     
 }
