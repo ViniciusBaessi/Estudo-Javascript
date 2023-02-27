@@ -90,7 +90,7 @@ function ler_usuario () {
         
     //Se não houver dados no array, exiba a mensagem na tela
     } else {
-        msg.innerHTML = "Ainda não há dados <br>"
+        msg.innerHTML = "Não há dados neste momento. Por favor, insira-os! <br>"
     }
 }
 
@@ -184,7 +184,7 @@ function botao_salvar () {
 
 function botao_alterar () {
   
-    form.innerHTML += `<input id="alterar" type="submit" value="Alterar" onclick="salvar_usuario ()">`
+    form.innerHTML += `<input id="alterar" type="submit" value="Salvar alteração" onclick="salvar_usuario ()">`
 
 }
 
