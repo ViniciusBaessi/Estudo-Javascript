@@ -7,7 +7,6 @@ function limpa_dados () {
     location.reload()
 }
 
-
 //Linkando o form de nome em uma variável
 var nome = window.document.getElementById('nome')
 var idade = window.document.getElementById('idade')
@@ -21,8 +20,6 @@ var contador = 0
 
 //Exibindo os dados na tela.
 ler_usuario ()
-
-
 
 //--------------ELABORAÇÃO DE UM CRUD (CREATE, READ, UPDATE, DELETE)----------------------
 
@@ -52,13 +49,10 @@ function adicionar_usuario () {
     idade.value = ""
     curso.value = ""
 
-
     //Acionando a função ler dados
     ler_usuario()
-
     
 }
-
 
 //-------------------------- READ --------------------------------------------
 
@@ -95,18 +89,13 @@ function ler_usuario () {
 }
 
 
-
-
-
  //-------------------------- UPDATE --------------------------------------------
-
 
 
 //Reconhecendo clicks feitos no body do HTML
 document.querySelector('body').addEventListener('click', function(evento) {
     click(evento);
 })
-
 
 function altera_usuario() {
 
@@ -138,7 +127,6 @@ document.getElementById('alterar').addEventListener('click', function() {
 
 }
 
-
 function salvar_usuario (aux) {
     
     //Coleta os dados salvos no local storage, converte para JSON e salva na variável (db_usuario)
@@ -156,9 +144,6 @@ function salvar_usuario (aux) {
     location.reload()
     }
 
-
-
-
 function click (evento) {
     
     //Reconhecendo o click no botão editar através do id 
@@ -169,7 +154,6 @@ function click (evento) {
 
         //Printa no console o valor do botão que foi clicado
         console.log(evento.target.dataset.indice);
-        
     }
     
 }
@@ -177,8 +161,6 @@ function click (evento) {
 function botao_salvar () {
   
      form.innerHTML += `<input id="enviar" type="submit" value="Enviar" onclick="adicionar_usuario () ">`
-
-    
 }
 
 
@@ -188,13 +170,7 @@ function botao_alterar () {
 
 }
 
-
-
-
-
-
  //-------------------------- DELETE --------------------------------------------
-
 
  function exclui_usuario () {
   
@@ -212,12 +188,8 @@ function botao_alterar () {
 
     //É feito um reload na página para que o usuario possa realizar novas operações
     location.reload()
-
     
 }
-
-
-
 
  function click (evento) {
     
@@ -227,7 +199,6 @@ function botao_alterar () {
 
         //Printa no console o valor do botão que foi clicado
         console.log(evento.target.dataset.indice);
-        
     }
     
 }
