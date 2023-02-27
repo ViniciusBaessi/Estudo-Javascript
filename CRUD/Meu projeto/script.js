@@ -79,7 +79,7 @@ function ler_usuario () {
         res.innerHTML += 
         `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} 
         
-        <button id="editar" data-indice="${contador}" onclick="altera_usuario()">Editar</button> <button id="excluir" onclick="exclui_usuario()">Excluir</button> <br>`
+        <button id="editar" data-indice="${contador}" onclick="altera_usuario()">Editar</button> <button onclick="exclui_usuario()">Excluir</button> <br>`
         
 
         contador = contador + 1
@@ -153,20 +153,20 @@ function salvar_usuario (aux) {
 
 
 
-    function click (evento) {
-        
-        //Reconhecendo o click no botão editar através do id 
-        if (evento.target.id == 'editar'){
+function click (evento) {
+    
+    //Reconhecendo o click no botão editar através do id 
+    if (evento.target.id == 'editar'){
 
-            //Pegando o indice do botão através da função altera_usuario
-            altera_usuario(evento);
+        //Pegando o indice do botão através da função altera_usuario
+        altera_usuario(evento);
 
-            //Printa no console o valor do botão que foi clicado
-            console.log(evento.target.dataset.indice);
-            
-        }
+        //Printa no console o valor do botão que foi clicado
+        console.log(evento.target.dataset.indice);
         
     }
+    
+}
 
 function botao_salvar () {
   
@@ -176,7 +176,7 @@ function botao_salvar () {
 }
 
 
- function botao_alterar () {
+function botao_alterar () {
   
     form.innerHTML += `<input id="alterar" type="submit" value="Alterar" onclick="salvar_usuario ()">`
 
@@ -187,19 +187,7 @@ function botao_salvar () {
 
 
 
-
- //-------------------------- DELETE --------------------------------------------
-
-
-
-
- function botao_alterar () {
-  
-    form.innerHTML += `<input id="alterar" type="submit" value="Alterar" onclick="salvar_usuario ()">`
-
-}
-
-
+ //-------------------------- UPDATE --------------------------------------------
 
 
  /*const atualizar_usuario = (index, user) => {
