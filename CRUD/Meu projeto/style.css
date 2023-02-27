@@ -72,7 +72,24 @@ header h1 {
 
   .resultado {
     margin-top: 15px;
-    padding: 15px;
-    border: 2px solid rgba(0, 0, 0, 0.26);
+    padding: 15px 0px;
+    
   }
+  
+
+  #res p {
+    width: 100vw;
+    font-family: 'Signika Negative', sans-serif;
+    line-height: 1.5;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.233);
+    
+  }
+
+  .dado {
+    color: rgb(113, 2, 204);
+  }
+
   

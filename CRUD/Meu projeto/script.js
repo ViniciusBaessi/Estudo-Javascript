@@ -80,9 +80,9 @@ function ler_usuario () {
 
         //Inserindo os dados na tela junto ao botão para UPDATE e DELETE
         res.innerHTML += 
-        `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} | curso: ${db_usuario[contador].curso} </div>
+        `<p> <strong class="dado">Nome:</strong> ${db_usuario[contador].nome} | <strong class="dado">idade:</strong> ${db_usuario[contador].idade} | <strong class="dado">curso:</strong> ${db_usuario[contador].curso} </div>
         
-        <button id="editar" data-indice="${contador}" onclick="altera_usuario()">Editar</button> <button id="excluir" data-indice="${contador}" onclick="exclui_usuario()">Excluir</button> <br>`
+        <button id="editar" data-indice="${contador}" onclick="altera_usuario()">Editar</button> <button id="excluir" data-indice="${contador}" onclick="exclui_usuario()">Excluir</button> </p>`
         
 
         contador = contador + 1
