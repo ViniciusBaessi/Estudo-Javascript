@@ -1,5 +1,78 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+header {
+  background-color: blueviolet;
+  text-align: center;
+  padding: 15px 0px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.438);
+}
+
+header h1 {
+  font-family: 'Signika Negative', sans-serif;
+  color: white;
+}
+
+
+
+
 #form {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: space-around;
+    padding: 37px;
+    border: 2px solid rgba(0, 0, 0, 0.233);
   }
+
+  #form p {
+    font-family: 'Signika Negative', sans-serif;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  #form input {
+    padding: 5px;
+    border-style: none;
+    border: 2px solid rgba(0, 0, 0, 0.61);
+    border-radius: 5px;
+    margin-left: 6px;
+    
+  }
+
+  #enviar {
+    width: 130px;
+    font-weight: bold;
+    background-color: rgba(0, 136, 41, 0.61);
+    text-transform: uppercase;
+  }
+
+  #limpar_dados {
+    width: 130px;
+    font-weight: bold;
+    
+    background-color: rgba(247, 1, 1, 0.575);
+    text-transform: uppercase;
+  }
+
+#alterar {
+  width: 130px;
+    font-weight: bold;
+    
+    background-color: rgba(255, 217, 5, 0.795);
+    text-transform: uppercase;
+}
+
+  .resultado {
+    margin-top: 15px;
+    padding: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.26);
+  }
+  

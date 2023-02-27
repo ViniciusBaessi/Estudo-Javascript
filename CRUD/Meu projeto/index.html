@@ -5,27 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <title>Document</title>
 </head>
 <body>
-    <section id="form">
 
-        <input type="text" name="" id="nome" placeholder="Digite o seu nome">
-        <input type="number" name="" id="idade" placeholder="Digite a sua idade">
+    <header>
+        <h1>Estudantes (database)</h1>
+    </header>
+
+    <main>
+        <section id="form">
+            <p><strong>Nome:</strong> <input type="text" name="" id="nome" placeholder="Digite o seu nome"></p>
+
+            <p><strong>Idade:</strong> <input type="number" name="" id="idade" placeholder="Digite a sua idade"></p>
+
+            <p><strong>Curso:</strong> <input type="text" name="" id="curso" placeholder="Digite o seu curso"></p>
         
-       <div id="salvar_alterar"><input id="enviar" type="submit" value="Enviar" onclick="adicionar_usuario ()"></div>
-       <div><input type="submit" value="Limpa e atualiza" onclick="limpa_dados ()"></div>
 
-       
-     
-
-    </section>
-
-    <div id="res"></div>
-    <div id="msg"></div>
+           <div id="salvar_alterar"> <input id="enviar" type="submit" value="Enviar" onclick="adicionar_usuario ()"></div>
+           <div><input id="limpar_dados" type="submit" value="Limpar dados" onclick="limpa_dados ()"></div>
+        
+        
+        </section>
 
 
+        <section class="resultado">
+            <div id="res"></div>
+            <div id="msg"></div>
+            <script src="script.js"></script>
+        </section>
 
-    <script src="script.js"></script>
+    </main>
 </body>
 </html>
