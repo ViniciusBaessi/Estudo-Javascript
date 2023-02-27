@@ -79,7 +79,7 @@ function ler_usuario () {
         res.innerHTML += 
         `Nome: ${db_usuario[contador].nome} | idade: ${db_usuario[contador].idade} 
         
-        <button id="meuBotao" data-indice="${contador}" onclick="altera_usuario()">Editar</button> <button onclick="exclui_usuario()">Excluir</button> <br>`
+        <button id="editar" data-indice="${contador}" onclick="altera_usuario()">Editar</button> <button id="excluir" onclick="exclui_usuario()">Excluir</button> <br>`
         
 
         contador = contador + 1
@@ -122,7 +122,7 @@ function altera_usuario() {
     // Remove o botão salvar
     if (document.getElementById('enviar')) {
         document.getElementById('enviar').remove()
-        botao_editar ()
+        botao_alterar ()
 }
 
 //Aciona a função salvar_usuario apenas quando o borão alterar for clicado
@@ -134,43 +134,39 @@ document.getElementById('alterar').addEventListener('click', function() {
 }
 
 
-
-
-function salvar_usuario (indice) {
+function salvar_usuario (aux) {
     
+    //Coleta os dados salvos no local storage, converte para JSON e salva na variável (db_usuario)
     const db_usuario = JSON.parse(localStorage.getItem('db_usuario'))
 
+    //O objeto salvo na (db_usuario) recebe os dados inputados no formulário
+    db_usuario[aux].nome = nome.value
+    db_usuario[aux].idade = idade.value
     
-    db_usuario[indice].nome = nome.value
-    db_usuario[indice].idade = idade.value
-
-
-
+    // Os dados na variável db_usuario são convertidos de JSON para string e é armazenado no localstorage
     localStorage.setItem("db_usuario", JSON.stringify(db_usuario));
 
-   
-
+    //É feito um reload na página para que o usuario possa realizar novas operações
+    location.reload()
     }
 
 
 
-    
 
+    function click (evento) {
+        
+        //Reconhecendo o click no botão editar através do id 
+        if (evento.target.id == 'editar'){
 
-function click (evento) {
-    
-    //Reconhecendo o click no botão editar através do id 
-    if (evento.target.id == 'meuBotao'){
+            //Pegando o indice do botão através da função altera_usuario
+            altera_usuario(evento);
 
-        //Pegando o indice do botão através da função altera_usuario
-        altera_usuario(evento);
-
-        //Printa no console o valor do botão que foi clicado
-        console.log(evento.target.dataset.indice);
+            //Printa no console o valor do botão que foi clicado
+            console.log(evento.target.dataset.indice);
+            
+        }
         
     }
-    
-}
 
 function botao_salvar () {
   
@@ -180,7 +176,7 @@ function botao_salvar () {
 }
 
 
-function botao_editar () {
+ function botao_alterar () {
   
     form.innerHTML += `<input id="alterar" type="submit" value="Alterar" onclick="salvar_usuario ()">`
 
@@ -188,6 +184,20 @@ function botao_editar () {
 
 
 
+
+
+
+
+ //-------------------------- DELETE --------------------------------------------
+
+
+
+
+ function botao_alterar () {
+  
+    form.innerHTML += `<input id="alterar" type="submit" value="Alterar" onclick="salvar_usuario ()">`
+
+}
 
 
 
