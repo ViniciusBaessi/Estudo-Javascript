@@ -5,71 +5,64 @@
 const url = "https://naruto-api.fly.dev/api/v1/characters"
 
 
+//Deixando o wiki oculto ao abrir a página
+var section = document.getElementById("wiki");
+section.style.display = "none";
 
-function getUser() {
+
+//Linkando o form do input ao javascript
+var num = document.getElementById('numero')
+
+
+
+
+//Ao cliar em (escolher) a função que consome a API é executada
+
+function Pegadados() {
+
+    //Colocando o número digitado pelo usuário com parâmetro
+    person = num.value
+
+    //Esconde o formulário inicial
+    var form = document.getElementById("form");
+    form.style.display = "none";
+
+    //Exibindo o wiki que estava oculto
+    var section = document.getElementById("wiki");
+    section.style.display = "flex";
+
+
+
     //Fazendo a requisioção dos dados da API
     axios.get(url)
 
-    // Após receber a requisição com êxito, os dados serão colocados na variável data
+    // Após receber a requisição com êxito, os dados serão colocados na variáveis seguites de acordo com o seu tipo
     .then(response => {
-        const data = response.data
 
-        //Convertendo os dados para texto e printando no HTML por meio do id (renderResults) que está na tag (div).
-        renderResults.textContent = JSON.stringify(data)
+        const nomedata = response.data[person].name
+        const fotodata = response.data[person].images[0]
+
+        const lorebruta = response.data[person].about
+
+        //Removendo caractere (") e (\) da lore
+        const loredata = JSON.stringify(lorebruta).replace(/[\\"]/g, "")
+
+
+        //Convertendo os dados para texto e printando no HTML por meio do id que está na tag (div).
+
+        nome.textContent = JSON.stringify(nomedata)
+
+        const foto = document.getElementById("foto")
+        foto.src = fotodata
+
+        lore.textContent = loredata
+
     })
     .catch(error => console.log(error))
 }
 
 
-getUser()
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-//Faça uma requisição usando o (fetch)
-
-fetch('https://naruto-api.fly.dev/api/v1/characters')
-
-//Após pegar o resultado, faça uma ação (comando then)
-.then((res) => {
-
-    //A acão é um if, se a promessa for recebida com sucesso, converta-o para JSON
-    console.log(res)
-    if(res.ok) {
-        return res.json() 
-    // Se houver falha no recebimento da requisição, aparece a seguinte mensagem.
-    }else {
-        console.log('Falha ao receber as informações')
-    }
-})
-//Após converter os dados para json, faça (comando then) o print no console
-.then((data) => console.log(data))
-
-
-//O comando (catch) faz o tratamento de erro
-.catch((err) => console.log(err))
-
-
-
-
-
-
-padrão da API
-
-Fonte:
-Nome:
-id:
-imagem
-informações
-
-*/
+function voltar() {
+    location.reload()
+}

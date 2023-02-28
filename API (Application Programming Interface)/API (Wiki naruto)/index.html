@@ -14,7 +14,20 @@
 </head>
 <body>
     
-    <div id="renderResults"></div>
+    <section id="form">
+        <div id="input">
+            <input type="number" name="" id="numero" placeholder="39">
+            <input id="salvar" type="submit" value="Escolher" onclick="Pegadados()">
+        </div>
+        <p>Insira um número de 1 até 49 para visualizar um personagem aleatório.</p>
+    </section>
+
+    <section id="wiki">
+        <div id="nome"></div>
+        <img id="foto" src="" alt="">
+        <div id="lore"></div>
+        <button id="reload" onclick="voltar()">Voltar</button>
+    </section>
 
 
     <script src="script.js"></script>
