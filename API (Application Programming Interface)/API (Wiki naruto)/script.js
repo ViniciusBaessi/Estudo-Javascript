@@ -1,11 +1,40 @@
 
 
 
+// Inserindo o link da API na variável url, apenas para facilitar na ecrita do código.
+const url = "https://naruto-api.fly.dev/api/v1/characters"
+
+
+
+function getUser() {
+    //Fazendo a requisioção dos dados da API
+    axios.get(url)
+
+    // Após receber a requisição com êxito, os dados serão colocados na variável data
+    .then(response => {
+        const data = response.data
+
+        //Convertendo os dados para texto e printando no HTML por meio do id (renderResults) que está na tag (div).
+        renderResults.textContent = JSON.stringify(data)
+    })
+    .catch(error => console.log(error))
+}
+
+
+getUser()
 
 
 
 
 
+
+
+
+
+
+
+
+/*
 
 //Faça uma requisição usando o (fetch)
 
@@ -34,7 +63,7 @@ fetch('https://naruto-api.fly.dev/api/v1/characters')
 
 
 
-/*
+
 padrão da API
 
 Fonte:
